@@ -239,13 +239,13 @@
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 							<font class="text-kanit" style="font-size: 12pt; color: #CCC;">(ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง)</font>
 					</b-col>
-					<b-col v-if=false id="comment" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
+					<b-col id="comment" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
 						<p class="text-kanit" style="font-size: 18pt!important; line-height: auto;">กล่องคำอวยพรคู่บ่าวสาวออนไลน์</p>
 					</b-col>
-					<b-col v-if=false sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
-						<b-form-textarea v-model="message" class="text-kanit" style="font-size: 12pt; max-width: 380px;" placeholder="ในการเดินทางที่ยาวไกล ครั้งนี้เราได้โครจรมาเกี่ยวเนื่องกัน..."></b-form-textarea>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+						<b-form-textarea v-model="message" class="text-kanit" style="font-size: 12pt; max-width: 380px;" placeholder="ร่วมอวยพรให้กับเรา kansunnewchapter..."></b-form-textarea>
 					</b-col>
-					<b-col v-if=false style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+					<b-col style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 						<b-button @click="sendMessage()" variant="outline-success" :disabled="message.length==0" class="text-kanit" style="font-size: 12pt; width: 140px;">ส่งคำอวยพร</b-button>
 					</b-col>
 					<b-col style="margin-top: 2rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
@@ -256,7 +256,7 @@
 					</b-col>
 					<b-col v-if="isPayment" style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 						<div id="payment">
-							<b-row v-if=false>
+							<b-row>
 								<b-col>
 									<font class="text-kanit" style="font-size: 12pt;"><i class="fas fa-comment-dots"></i> จะมากหรือน้อยก็ยินดี สำคัญที่ส่งคำอวยพรให้สองเรา...</font>
 								</b-col>
@@ -405,20 +405,20 @@
 				this.countdown = `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`
 			},
 			async sendMessage () {
-				// try {
-				// 	const response = await axios.get('https://dktap82.000webhostapp.com/backend/send_message.php', {
-				// 		params: {
-				// 			code: this.code,
-				// 			message: this.message
-				// 		}
-				// 	})
-				// 	if ( response.data ) {
-				// 		console.log('Send Message!')
-				// 	}
+				try {
+					const response = await axios.get('https://dktap82.000webhostapp.com/backend/send_message.php', {
+						params: {
+							code: 'kan&sun',
+							message: this.message
+						}
+					})
+					if ( response.data ) {
+						console.log('Send Message!')
+					}
 					
-				// } catch (error) {
-				// 	console.error(error)
-				// }
+				} catch (error) {
+					console.error(error)
+				}
 				
 				this.message = ''
 			},
@@ -429,7 +429,7 @@
 				try {
 					const response = await axios.get('https://dktap82.000webhostapp.com/backend/donate.php', {
 						params: {
-							code: this.code,
+							code: 'kan&sun',
 							title: this.transferor,
 							amount: this.amount,
 							imageOCR: this.recognitionResult
