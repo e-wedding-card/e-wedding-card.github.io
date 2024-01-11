@@ -16,18 +16,22 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- css cdn -->
 	<style type="text/css">
+		@font-face {
+            font-family: Pimpdeed;
+            src: url('fonts/ps_pimpdeediiM.ttf');
+        }
 		.text-kanit {
-			font-family: 'Kanit', sans-serif;
+			font-family: 'Pimpdeed', sans-serif;
 			font-weight: 300;
-			font-size: 24pt;
+			font-size: 28pt;
 		}
 		.text-bodoni {
-			font-family: 'Bodoni Std', sans-serif;
+			font-family: 'Pimpdeed', sans-serif;
 			font-weight: 500;
 			font-size: 48pt;
 		}
 		.text-gabrielle {
-			font-family: 'Gabrielle', sans-serif;
+			font-family: 'Pimpdeed', sans-serif;
 			font-weight: 100;
 			font-size: 42pt;
 		}
@@ -101,10 +105,10 @@
     				<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center">
     					<p class="text-bodoni">S A V E</p>
     				</b-col>
-    				<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center" :style="(w992) ? 'margin-top: -20px;' : ''">
+    				<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center" :style="(w992) ? 'margin-top: -35px;' : ''">
     					<p class="text-gabrielle">The</p>
     				</b-col>
-    				<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center" :style="(w992) ? 'margin-top: -20px;' : ''">
+    				<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center" :style="(w992) ? 'margin-top: -35px;' : ''">
     					<p class="text-bodoni">D A T E</p>
     				</b-col>
     			</b-row>
@@ -113,7 +117,7 @@
     			<b-row class="main-picture-gallery">
     				<div class="image-container d-flex align-items-center justify-content-center">
     					<!-- <b-img src="https://www.baliphotoshooting.com/wp-content/uploads/2019/02/nicolas-prewedding-karangasem-2.jpg" fluid alt="Responsive image"></b-img> -->
-    					<b-img src="pic-main.JPG" style="max-width: 480px;" fluid alt="Responsive image"></b-img>
+    					<b-img src="pic-main.JPG" style="max-width: 480px; margin-top: -25px;" fluid alt="Responsive image"></b-img>
     					<div class="overlay"></div>
     				</div>
 				</b-row>
@@ -128,7 +132,7 @@
 						<b-img src="title.JPG" style="max-width: 90px; margin-right: 10px; margin-top: -25px;" alt="Married Image"></b-img>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center">
-						<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">จะเริ่มใน {{ countdown }} </font>
+						<font class="text-kanit" style="font-size: 18pt!important; line-height: auto;">จะเริ่มใน {{ countdown }} </font>
 					</b-col>
 				</b-row>
 				<hr>
@@ -138,13 +142,13 @@
 						<p class="text-gabrielle" style="line-height: 0.6;">I would like to <font style="color: #FFB6C1; text-shadow: 1px 1px white;">invite</font> you.</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 0.5rem;">
-						<p v-if="guest" v-html="guest.text" class="text-kanit" style="font-size: 18pt!important; line-height: auto;"></p>
-						<p v-else class="text-kanit" style="font-size: 18pt!important; line-height: auto;">ขอเรียนเชิญแขกผู้มีเกียรติ
+						<p v-if="guest" v-html="guest.text" class="text-kanit" style="font-size: 22pt!important; line-height: auto;"></p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">ขอเรียนเชิญแขกผู้มีเกียรติ
 						</p>
 					</b-col>
 					<b-col sm="12" md="12" class="text-center" style="margin-top: 1.5rem;">
 						<!-- <p class="text-kanit" style="font-size: 10pt!important; line-height: auto;"> -->
-							<b-row class="text-kanit" style="font-size: 16pt!important; line-height: auto;">
+							<b-row class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<b-col sm="5">
 									นายแสง ศรีชะนะ<br>
 									นางทองเลื่อน ศรีชะนะ
@@ -160,21 +164,21 @@
 						<!-- </p> -->
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
-						<p class="text-kanit" style="font-size: 12pt!important; line-height: auto;">มีความยินดีอย่างยิ่ง ขอเรียนเชิญท่าน และร่วมรับประทานอาหาร เนื่องในพิธีมงคลสมรส ระหว่าง</p>
+						<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">มีความยินดีอย่างยิ่ง ขอเรียนเชิญท่าน และร่วมรับประทานอาหาร เนื่องในพิธีมงคลสมรส ระหว่าง</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
 						<b-img src="married.png" style="max-width: 48px; margin-right: 10px; margin-top: -25px;" alt="Married Image"></b-img>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: -0.25rem;">
-						<p v-if="swap==1" class="text-kanit" style="font-size: 18pt!important; line-height: auto;">นายธนากร ปิยะกมลนิรันดร์ (ซัน)</p>
-						<p v-else class="text-kanit" style="font-size: 18pt!important; line-height: auto;">นางสาวกาญจนา ศรีชะนะ (กานต์)</p>
+						<p v-if="swap==1" class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นายธนากร ปิยะกมลนิรันดร์ (ซัน)</p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นางสาวกาญจนา ศรีชะนะ (กานต์)</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 						<b-img src="time-2.JPG" style="max-width: 50px; margin-right: 10px; margin-top: -15px;" alt="Married Image"></b-img>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 0.5rem;">
-						<p v-if="swap==1" class="text-kanit" style="font-size: 18pt!important; line-height: auto;">นางสาวกาญจนา ศรีชะนะ (กานต์)</p>
-						<p v-else class="text-kanit" style="font-size: 18pt!important; line-height: auto;">นายธนากร ปิยะกมลนิรันดร์ (ซัน)</p>
+						<p v-if="swap==1" class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นางสาวกาญจนา ศรีชะนะ (กานต์)</p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นายธนากร ปิยะกมลนิรันดร์ (ซัน)</p>
 					</b-col>
 				</b-row>
 				<b-container fluid class="d-flex align-items-center justify-content-center p-4">
@@ -192,16 +196,16 @@
 				</b-container>
 				<b-row>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 0.5rem;">
-						<p class="text-kanit" style="font-size: 12pt!important; line-height: auto;">ณ บ้านเลขที่ 1 หมู่ที่ 8 บ้านตำแย ตำบลโพธิ์ชัย อำเภอวาปีปทุม จังหวัดมหาสารคาม</p>
+						<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">ณ บ้านเลขที่ 1 หมู่ที่ 8 บ้านตำแย ตำบลโพธิ์ชัย อำเภอวาปีปทุม จังหวัดมหาสารคาม</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 0.5rem;">
-						<p class="text-kanit" style="font-size: 18pt!important; line-height: auto;">วันเสาร์ ที่ 20 มกราคม พ.ศ. 2567 (ขึ้น ๑๐ ค่ำ เดือน ๒)</p>
+						<p class="text-kanit" style="font-size: 22pt!important; line-height: auto;">วันเสาร์ ที่ 20 มกราคม พ.ศ. 2567<br>(ขึ้น ๑๐ ค่ำ เดือน ๒)</p>
 					</b-col>
 				</b-row>
 				<b-row>
 					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
 						<b-col @click="hint1=true" sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<b-img fluid aspect-ratio="1" src="time-0.JPG" width="48pt" height="48pt" alt="tl-1"></b-img>
 								7:09น. พิธีสงฆ์
 							</font>
@@ -209,7 +213,7 @@
 					</div>
 					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
 						<b-col @click="hint1=true" sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<b-img fluid aspect-ratio="1" src="time-1.JPG" width="48pt" height="48pt" alt="tl-1"></b-img>
 								8:09น. พิธีแห่ขันหมาก
 							</font>
@@ -217,7 +221,7 @@
 					</div>
 					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
 						<b-col @click="hint2=true" sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<b-img fluid aspect-ratio="1" src="time-21.JPG" width="48pt" height="48pt" alt="tl-2"></b-img>
 								9:09น. พิธีหลั่งน้ำสังข์
 							</font>
@@ -225,40 +229,40 @@
 					</div>
 					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
 						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.75rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<b-img fluid aspect-ratio="1" src="time-3.JPG" width="48pt" height="48pt" alt="tl-3"></b-img>
-								เสร็จพิธี ร่วมรับประทานอาหาร (โต๊ะจีน)
+								เสร็จพิธี รับประทานอาหาร(โต๊ะจีน)
 							</font>
 						</b-col>
 					</div>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
-							<p class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								Theme: <i class="fas fa-circle theme-color" style="color: #FFB6C1;"></i> <i class="fas fa-circle theme-color" style="color: #E5E7E9;"></i> <i class="fas fa-circle theme-color" style="color: #FCF3CF;"></i>
 							</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
-							<font class="text-kanit" style="font-size: 12pt; color: #CCC;">(ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง)</font>
+							<font class="text-kanit" style="font-size: 20pt; color: #CCC;">(ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง)</font>
 					</b-col>
 					<b-col id="comment" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center" style="margin-top: 1.5rem;">
-						<p class="text-kanit" style="font-size: 18pt!important; line-height: auto;">กล่องคำอวยพรคู่บ่าวสาวออนไลน์</p>
+						<p class="text-kanit" style="font-size: 22pt!important; line-height: auto;">กล่องคำอวยพรคู่บ่าวสาวออนไลน์</p>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
-						<b-form-textarea v-model="message" class="text-kanit" style="font-size: 12pt; max-width: 380px;" placeholder="ร่วมอวยพรให้กับเรา kansunnewchapter..."></b-form-textarea>
+						<b-form-textarea v-model="message" class="text-kanit" style="font-size: 20pt; max-width: 380px;" placeholder="ร่วมอวยพรให้กับเรา kansunnewchapter..."></b-form-textarea>
 					</b-col>
 					<b-col style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
-						<b-button @click="sendMessage()" variant="outline-success" :disabled="message.length==0" class="text-kanit" style="font-size: 12pt; width: 140px;">ส่งคำอวยพร</b-button>
+						<b-button @click="sendMessage()" variant="outline-success" :disabled="message.length==0" class="text-kanit" style="font-size: 20pt; width: 140px;">ส่งคำอวยพร</b-button>
 					</b-col>
 					<b-col style="margin-top: 2rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 						<b-img src="married.png" style="max-width: 48px; margin-right: 10px; margin-top: -25px;" alt="Married Image"></b-img>
 					</b-col>
 					<b-col style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
-						<b-button @click="showDonate()" :variant="(amount==0) ? 'outline-warning' : 'outline-secondary' " class="text-kanit" style="font-size: 12pt; width: 140px;">ผูกข้อมือออนไลน์</b-button>
+						<b-button @click="showDonate()" :variant="(amount==0) ? 'outline-warning' : 'outline-secondary' " class="text-kanit" style="font-size: 20pt; width: 140px;">ผูกข้อมือออนไลน์</b-button>
 					</b-col>
 					<b-col v-if="isPayment" style="margin-top: 0.5rem;" sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
 						<div id="payment">
 							<b-row>
 								<b-col>
-									<font class="text-kanit" style="font-size: 12pt;"><i class="fas fa-comment-dots"></i> จะมากหรือน้อยก็ยินดี สำคัญที่ส่งคำอวยพรให้สองเรา...</font>
+									<font class="text-kanit" style="font-size: 20pt;"><i class="fas fa-comment-dots"></i> จะมากหรือน้อยก็ยินดี สำคัญที่ส่งคำอวยพรให้สองเรา...</font>
 								</b-col>
 							</b-row>
 							<b-row>
@@ -272,26 +276,26 @@
 							</b-row>
 							<b-row style="margin-top: 1rem;">
 								<b-col>
-									<input class="text-kanit" style="font-size: 12pt; margin-left: 40px;" type="file" ref="paymentInput" @change="imageOCR">
+									<input class="text-kanit" style="font-size: 20pt; margin-left: 40px;" type="file" ref="paymentInput" @change="imageOCR">
 								</b-col>
 							</b-row>
 							<b-row>
 								<b-col style="margin-top: 0.5rem;">
 									<template v-if="!ocrLoading">
 										<div v-if="amount>0">
-											<font class="text-kanit" style="font-size: 12pt;">
+											<font class="text-kanit" style="font-size: 20pt;">
 											ชื่อผู้โอน: {{ (transferor!=null) ? transferor : '-' }}<br>
 											จำนวน: {{ amount }} บาท<br>
 											</font>
 
-											<font class="text-kanit" style="font-size: 12pt;"><i class="fas fa-comment-dots"></i> ขอบคุณครับ, ขอบคุณค่ะ<br></font>
+											<font class="text-kanit" style="font-size: 20pt;"><i class="fas fa-comment-dots"></i> ขอบคุณครับ, ขอบคุณค่ะ<br></font>
 
-											<b-button @click="confmDonate()" variant="outline-warning" class="text-kanit" style="margin-top: 0.5rem; font-size: 12pt; width: 140px;">แจ้งโอนเงิน
+											<b-button @click="confmDonate()" variant="outline-warning" class="text-kanit" style="margin-top: 0.5rem; font-size: 20pt; width: 140px;">แจ้งโอนเงิน
 											</b-button>
 										</div>
 									</template>
-									<template v-else class="text-kanit" style="font-size: 12pt;">
-										<font v-if="imagePaymentSrc!==''" class="text-kanit" style="font-size: 12pt;">กำลังวิเคราะห์ไฟล์รูปภาพ...<font>
+									<template v-else class="text-kanit" style="font-size: 20pt;">
+										<font v-if="imagePaymentSrc!==''" class="text-kanit" style="font-size: 20pt;">กำลังวิเคราะห์ไฟล์รูปภาพ...<font>
 									</template>
 								</b-col>
 							</b-row>
@@ -314,22 +318,22 @@
 				<b-row>
 					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 18%;'">
 						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font @click="openMap()" class="text-kanit" style="font-size: 12pt!important; line-height: auto;"><i class="fas fa-map-marker-alt" style="margin-right: 6.5px; color: #FFB6C1;"></i> สถานที่จัดงาน (คลิก Google Map)</font>
+							<font @click="openMap()" class="text-kanit" style="font-size: 20pt!important; line-height: auto;"><i class="fas fa-map-marker-alt" style="margin-right: 6.5px; color: #FFB6C1;"></i> สถานที่จัดงาน (คลิก Google Map)</font>
 						</b-col>
 						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<i class="fas fa-car" style="margin-right: 3.5px;"></i> กรุงเทพฯ 450km. (6ชม.)
 							</font>
 						</b-col>
 						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
-							<font class="text-kanit" style="font-size: 12pt!important; line-height: auto;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
 								<i class="fas fa-plane-arrival"></i> ท่าอากาศยานร้อยเอ็ด 67km.
 							</font>
 						</b-col>
 					</div>
 				</b-row>
 				<b-row style="margin-bottom: 25px;">
-					<b-col sm="12" md="12" class="text-kanit d-flex align-items-center justify-content-center text-center" style="margin-top: 2rem; font-size: 12pt;">
+					<b-col sm="12" md="12" class="text-kanit d-flex align-items-center justify-content-center text-center" style="margin-top: 2rem; font-size: 20pt;">
 						<font style="color: #CCC;">Designed By DkTaP82</font>
 					</b-col>
 				</b-row>
