@@ -163,7 +163,8 @@
 							countdown }} </font>
 					</b-col>
 					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center">
-						<font class="text-kanit" style="font-size: 18pt!important; line-height: auto;">เพลงของเรา..</font>&nbsp;
+						<font class="text-kanit" style="font-size: 18pt!important; line-height: auto;">เพลงของเรา..
+						</font>&nbsp;
 						<audio ref="audio" controls class="custom-audio">
 							<source src="song.mp3" type="audio/mpeg" />
 						</audio>
@@ -511,19 +512,32 @@
 				}
 			},
 			async sendMessage() {
-				try {
-					const response = await axios.get('https://dktap82.000webhostapp.com/backend/send_message.php', {
-						params: {
-							code: 'kan&sun',
-							message: this.message
-						}
-					})
-					if (response.data) {
-						console.log('Send Message!')
-					}
+				// try {
+				// 	const response = await axios.get('https://dktap82.000webhostapp.com/backend/send_message.php', {
+				// 		params: {
+				// 			code: 'kan&sun',
+				// 			message: this.message
+				// 		}
+				// 	})
+				// 	if (response.data) {
+				// 		console.log('Send Message!')
+				// 	}
 
+				// } catch (error) {
+				// 	console.error(error)
+				// }
+
+				// google sheets
+				try {
+					const apiUrl = 'https://script.google.com/macros/s/AKfycbxXq7l3b06VhVSWtuYAeBdY7ju70ckzSY3NU0cX1kk/dev'; // ใส่ URL API ที่ได้จาก Google Apps Script
+					await axios.post(apiUrl, { message: this.message }, {
+						headers: { "Content-Type": "application/json" }
+					})
+
+					// alert("บันทึกข้อมูลสำเร็จ")
 				} catch (error) {
-					console.error(error)
+					console.error("Error:", error)
+					// alert("เกิดข้อผิดพลาด")
 				}
 
 				this.message = ''
