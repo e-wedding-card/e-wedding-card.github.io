@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!-- css cdn -->
+	<link href="https://fonts.cdnfonts.com/css/kanit" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/bodoni-std" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/gabrielle" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.23.1/bootstrap-vue.min.css"
+		integrity="sha512-YUqiEWiqDbBHeBWsrh+VDjFU6cMhVVmgjpBaoDhjMDhsfmfKVuU68KC0bFjWCgyD8B4LbcNc2p+1+NFtdYU9bw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.23.1/bootstrap-vue-icons.min.css"
+		integrity="sha512-i0tPmtwhNYyKmqYiccSN9qsEX25FsNNkeWqIbjYyk7QoVkPLfyl7QsABy3oIQx5ofROjV6KLJTzV+asMrT25UA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+		integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- css cdn -->
+	<style type="text/css">
+		@font-face {
+			font-family: Pimpdeed;
+			src: url('fonts/ps_pimpdeediiM.ttf');
+		}
+
+		.text-kanit {
+			font-family: 'Pimpdeed', sans-serif;
+			font-weight: 300;
+			font-size: 28pt;
+		}
+
+		.text-bodoni {
+			font-family: 'Pimpdeed', sans-serif;
+			font-weight: 500;
+			font-size: 48pt;
+		}
+
+		.text-gabrielle {
+			font-family: 'Pimpdeed', sans-serif;
+			font-weight: 100;
+			font-size: 42pt;
+		}
+
+		/* gradient color */
+		.image-container {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		.image {
+			width: 100%;
+			height: auto;
+		}
+
+		.image-container::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 20%;
+			/* Cover the top 25% of the image */
+			background: linear-gradient(to top, transparent, white);
+			/* Gradient effect */
+			z-index: 1;
+		}
+
+		.tn-1 {
+			width: 100%;
+			height: auto%;
+			padding-bottom: 5%;
+			/* This creates a 1:1 aspect ratio */
+			transform: rotate(3deg);
+		}
+
+		.tn-2 {
+			width: 100%;
+			height: auto;
+			padding-bottom: 5%;
+			transform: rotate(-3deg);
+		}
+
+		.tn-3 {
+			width: 100%;
+			height: auto%;
+			padding-bottom: 5%;
+			transform: rotate(0deg);
+		}
+
+		.theme-color {
+			outline: 2.5px solid black;
+			border-radius: 50%;
+			background-color: transparent;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.custom-audio {
+			width: 150px;
+			height: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<template>
+			<b-container fulid>
+				<!-- h -->
+				<b-row style="margin-top: 0.25rem;">
+					<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center">
+						<p class="text-bodoni">S A V E</p>
+					</b-col>
+					<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center"
+						:style="(w992) ? 'margin-top: -35px;' : ''">
+						<p class="text-gabrielle">The</p>
+					</b-col>
+					<b-col sm=12 md=4 class="d-flex align-items-center justify-content-center"
+						:style="(w992) ? 'margin-top: -35px;' : ''">
+						<p class="text-bodoni">D A T E</p>
+					</b-col>
+				</b-row>
+
+				<!-- p -->
+				<b-row class="main-picture-gallery">
+					<div class="image-container d-flex align-items-center justify-content-center">
+						<!-- <b-img src="https://www.baliphotoshooting.com/wp-content/uploads/2019/02/nicolas-prewedding-karangasem-2.jpg" fluid alt="Responsive image"></b-img> -->
+						<b-img src="pic-main.JPG" style="max-width: 480px; margin-top: -25px;" fluid
+							alt="Responsive image"></b-img>
+						<div class="overlay"></div>
+					</div>
+				</b-row>
+
+				<!-- d -->
+				<b-row style="margin-top: 1rem;">
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+						<p v-if="swap==1" class="text-kanit">Vitoon & Onuma</p>
+						<p v-else="swap==1" class="text-kanit">Onuma & Vitoon</p>
+					</b-col>
+					<b-col sm="12" md="12" style="margin-top: 0.5rem;" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center">
+						<b-img src="title.JPG" style="max-width: 90px; margin-right: 10px; margin-top: -25px;"
+							alt="Married Image"></b-img>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center">
+						<font class="text-kanit" style="font-size: 18pt!important; line-height: auto;">จะเริ่มใน {{
+							countdown }} </font>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center">
+						<font class="text-kanit" style="font-size: 18pt!important; line-height: auto;">เพลงของเรา..</font>&nbsp;
+						<audio ref="audio" controls class="custom-audio">
+							<source src="song.mp3" type="audio/mpeg" />
+						</audio>
+					</b-col>
+				</b-row>
+				<hr>
+
+				<b-row>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 0.5rem;">
+						<p class="text-gabrielle" style="line-height: 0.6;">I would like to <font
+								style="color: #FFB6C1; text-shadow: 1px 1px white;">invite</font> you.</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 0.5rem;">
+						<p v-if="guest" v-html="guest.text" class="text-kanit"
+							style="font-size: 22pt!important; line-height: auto;"></p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">
+							ขอเรียนเชิญแขกผู้มีเกียรติ
+						</p>
+					</b-col>
+					<b-col sm="12" md="12" class="text-center" style="margin-top: 1.5rem;">
+						<!-- <p class="text-kanit" style="font-size: 10pt!important; line-height: auto;"> -->
+						<b-row class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+							<b-col sm="5">
+								นายสมชาย ลานันท์<br>
+								นางทองสา ลานันท์
+							</b-col>
+							<b-col sm="2" style="margin-top: 10px;">
+								และ
+							</b-col>
+							<b-col sm="5">
+								นายลิขิต เข็มพันธ์<br>
+								น.ส.สมบูรณ์ เสงี่ยมทรัพย์
+							</b-col>
+						</b-row>
+						<!-- </p> -->
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 1.5rem;">
+						<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">มีความยินดีอย่างยิ่ง
+							ขอเรียนเชิญท่าน และร่วมรับประทานอาหาร เนื่องในพิธีมงคลสมรส ระหว่าง</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 1.5rem;">
+						<b-img src="married.png" style="max-width: 48px; margin-right: 10px; margin-top: -25px;"
+							alt="Married Image"></b-img>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: -0.25rem;">
+						<p v-if="swap==1" class="text-kanit" style="font-size: 22pt!important; line-height: auto;">
+							นายวิฑูรย์ เสงี่ยมทรัพย์ (ปิ๊กอัพ)</p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นางสาว อรอุมา
+							ลานันท์ (อร)</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+						<b-img src="time-2.JPG" style="max-width: 50px; margin-right: 10px; margin-top: -15px;"
+							alt="Married Image"></b-img>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 0.5rem;">
+						<p v-if="swap==1" class="text-kanit" style="font-size: 22pt!important; line-height: auto;">
+							นางสาว อรอุมา ลานันท์ (อร)</p>
+						<p v-else class="text-kanit" style="font-size: 22pt!important; line-height: auto;">นาย วิฑูรย์
+							เสงี่ยมทรัพย์ (ปิ๊กอัพ)</p>
+					</b-col>
+				</b-row>
+				<b-container fluid class="d-flex align-items-center justify-content-center p-4">
+					<b-row>
+						<b-col sm="12" md="4">
+							<b-img thumbnail fluid aspect-ratio="1" class="tn-1 shadow-lg p-1 bg-white" src="tn-1.JPG"
+								alt="tn-1"></b-img>
+						</b-col>
+						<b-col sm="12" md="4">
+							<b-img thumbnail fluid aspect-ratio="1" class="tn-2 shadow-lg p-1 bg-white" src="tn-2.JPG"
+								alt="tn-2"></b-img>
+						</b-col>
+						<b-col sm="12" md="4">
+							<b-img thumbnail fluid aspect-ratio="1" class="tn-3 shadow-lg p-1 bg-white" src="tn-3.JPG"
+								alt="tn-3"></b-img>
+						</b-col>
+					</b-row>
+				</b-container>
+				<b-row>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 0.5rem;">
+						<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">ณ บ้านเลขที่ 32 ม. 2
+							บ.โนนมะงา ต.สะแก อ.สตึก จ.บุรีรัมย์</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 0.5rem;">
+						<p class="text-kanit" style="font-size: 22pt!important; line-height: auto;">วันอาทิตย์ ที่ 9
+							มีนาคม พ.ศ. 2568<br>(ขึ้น ๑๑ ค่ำ เดือน ๔)</p>
+					</b-col>
+				</b-row>
+				<b-row>
+					<!-- <div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
+						<b-col @click="hint1=true" sm="12" md="12" class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<b-img fluid aspect-ratio="1" src="time-0.JPG" width="48pt" height="48pt" alt="tl-1"></b-img>
+								9:00น. พิธีแห่ขันหมาก
+							</font>
+						</b-col>
+					</div> -->
+					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
+						<b-col @click="hint1=true" sm="12" md="12"
+							class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<b-img fluid aspect-ratio="1" src="time-1.JPG" width="48pt" height="48pt"
+									alt="tl-1"></b-img>
+								09:00น. พิธีแห่ขันหมาก
+							</font>
+						</b-col>
+					</div>
+					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
+						<b-col @click="hint2=true" sm="12" md="12"
+							class="d-flex align-items-center justify-content-left" style="margin-top: 0.5rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<b-img fluid aspect-ratio="1" src="time-21.JPG" width="48pt" height="48pt"
+									alt="tl-2"></b-img>
+								10:00น. บายศรีสู่ขวัญ
+							</font>
+						</b-col>
+					</div>
+					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 10%;'">
+						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left"
+							style="margin-top: 0.75rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<b-img fluid aspect-ratio="1" src="time-3.JPG" width="48pt" height="48pt"
+									alt="tl-3"></b-img>
+								12.00น. ร่วมรับประทานอาหารกลางวัน
+							</font>
+						</b-col>
+					</div>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 1.5rem;">
+						<p class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+							Theme: <i class="fas fa-circle theme-color" style="color: #9A6AFA;"></i> <i
+								class="fas fa-circle theme-color" style="color: #74E5E9;"></i> <i
+								class="fas fa-circle theme-color" style="color: #FC79CB;"></i> <i
+								class="fas fa-circle theme-color" style="color: #B3BC9F;"></i>
+						</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+						<font class="text-kanit" style="font-size: 20pt; color: #CCC;">
+							(ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง)</font>
+					</b-col>
+					<b-col id="comment" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 1.5rem;">
+						<p class="text-kanit" style="font-size: 22pt!important; line-height: auto;">
+							กล่องคำอวยพรคู่บ่าวสาวออนไลน์</p>
+					</b-col>
+					<b-col sm="12" md="12" class="d-flex align-items-center justify-content-center text-center">
+						<b-form-textarea v-model="message" class="text-kanit" style="font-size: 20pt; max-width: 380px;"
+							placeholder="ร่วมอวยพรให้กับเรา..."></b-form-textarea>
+					</b-col>
+					<b-col style="margin-top: 0.5rem;" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center">
+						<b-button @click="sendMessage()" variant="outline-success" :disabled="message.length==0"
+							class="text-kanit" style="font-size: 20pt; width: 140px;">ส่งคำอวยพร</b-button>
+					</b-col>
+					<b-col style="margin-top: 2rem;" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center">
+						<b-img src="married.png" style="max-width: 48px; margin-right: 10px; margin-top: -25px;"
+							alt="Married Image"></b-img>
+					</b-col>
+					<b-col style="margin-top: 0.5rem;" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center">
+						<b-button @click="showDonate()"
+							:variant="(amount==0) ? 'outline-warning' : 'outline-secondary' " class="text-kanit"
+							style="font-size: 20pt; width: 140px;">ผูกข้อมือออนไลน์</b-button>
+					</b-col>
+					<b-col v-if="isPayment" style="margin-top: 0.5rem;" sm="12" md="12"
+						class="d-flex align-items-center justify-content-center text-center">
+						<div id="payment">
+							<b-row>
+								<b-col>
+									<font class="text-kanit" style="font-size: 20pt;"><i
+											class="fas fa-comment-dots"></i> ขอขอบพระคุณที่ร่วมส่งคำอวยพร...</font>
+								</b-col>
+							</b-row>
+							<b-row>
+								<b-col>
+									<b-img src="QRCODE.PNG" style="max-height: 360px;">
+									</b-img>
+								</b-col>
+							</b-row>
+							<b-row v-if="false" style="margin-top: 1rem;">
+								<b-col>
+									<input class="text-kanit" style="font-size: 20pt; margin-left: 40px;" type="file"
+										ref="paymentInput" @change="imageOCR">
+								</b-col>
+							</b-row>
+							<b-row>
+								<b-col style="margin-top: 0.5rem;">
+									<template v-if="!ocrLoading">
+										<div v-if="amount>0">
+											<font class="text-kanit" style="font-size: 20pt;">
+												ชื่อผู้โอน: {{ (transferor!=null) ? transferor : '-' }}<br>
+												จำนวน: {{ amount }} บาท<br>
+											</font>
+
+											<font class="text-kanit" style="font-size: 20pt;"><i
+													class="fas fa-comment-dots"></i> ขอบคุณครับ, ขอบคุณค่ะ<br></font>
+
+											<b-button @click="confmDonate()" variant="outline-warning"
+												class="text-kanit"
+												style="margin-top: 0.5rem; font-size: 20pt; width: 140px;">แจ้งโอนเงิน
+											</b-button>
+										</div>
+									</template>
+									<template v-else class="text-kanit" style="font-size: 20pt;">
+										<font v-if="imagePaymentSrc!==''" class="text-kanit" style="font-size: 20pt;">
+											กำลังวิเคราะห์ไฟล์รูปภาพ...<font>
+									</template>
+								</b-col>
+							</b-row>
+							<b-row>
+								<b-col style="margin-top: 0.5rem;">
+									<b-img v-if="imagePaymentSrc" :src="imagePaymentSrc" alt="Uploaded Image"
+										class="shadow-lg p-1 bg-white" style="max-height: 400px; max-width: 320;">
+									</b-img>
+								</b-col>
+							</b-row>
+						</div>
+					</b-col>
+				</b-row>
+				<hr>
+				<b-row>
+					<div :style="(!w992) ? 'margin-left: 40%;' : 'margin-left: 18%;'">
+						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left"
+							style="margin-top: 0.5rem;">
+							<font @click="openMap()" class="text-kanit"
+								style="font-size: 20pt!important; line-height: auto;"><i class="fas fa-map-marker-alt"
+									style="margin-right: 6.5px; color: #FFB6C1;"></i> สถานที่จัดงาน (คลิก Google Map)
+							</font>
+						</b-col>
+						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left"
+							style="margin-top: 0.5rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<i class="fas fa-car" style="margin-right: 3.5px;"></i> กรุงเทพฯ 450km. (6ชม.)
+							</font>
+						</b-col>
+						<b-col sm="12" md="12" class="d-flex align-items-center justify-content-left"
+							style="margin-top: 0.5rem;">
+							<font class="text-kanit" style="font-size: 20pt!important; line-height: auto;">
+								<i class="fas fa-plane-arrival"></i> ท่าอากาศยานบุรีรัมย์ 20km.
+							</font>
+						</b-col>
+					</div>
+				</b-row>
+				<b-row style="margin-bottom: 25px;">
+					<b-col sm="12" md="12"
+						class="text-kanit d-flex align-items-center justify-content-center text-center"
+						style="margin-top: 2rem; font-size: 20pt;">
+						<font style="color: #CCC;">Designed By DkTaP82</font>
+					</b-col>
+				</b-row>
+			</b-container>
+		</template>
+	</div>
+</body>
+<!-- js cdn -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+	integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.23.1/bootstrap-vue.min.js"
+	integrity="sha512-SP/zE7YazvnUG95bWnA1AeC5+WtAOqumEHSgcKTNfVefAMsDcVCt6D3Q3goqR3vSf50zPG3OZtnMjBJd9GBgkw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.6/axios.min.js"
+	integrity="sha512-RUkwGPgBmjCwqXpCRzpPPmGl0LSFp9v5wXtmG41+OS8vnmXybQX5qiG5adrIhtO03irWCXl+z0Jrst6qeaLDtQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"
+	integrity="sha512-2wYKf5SRmHOMuTUmSsOkTTwejJrRcL6oHK5zHw/8MPUwZgTEekmapU6UOkxs0KFy20eWWmCiL30fZoVrtRkcPQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- js cdn -->
+<script>
+	const app = new Vue({
+		el: '#app',
+		components: {
+
+		},
+		data() {
+			return {
+				title: 'O&P',
+				code: new URLSearchParams(window.location.search).get('code') ?? null,
+				guest: null,
+				swap: 2,
+				targetDate: '2025-03-09 09:00:00',
+				countdown: '',
+				hint1: false,
+				hint2: false,
+				message: '',
+				isPayment: false,
+				ocrLoading: false,
+				imagePaymentSrc: '',
+				recognitionResult: '',
+				amount: 0.00,
+				transferor: null
+			}
+		},
+		methods: {
+			async getInvitaion() {
+				try {
+					const response = await axios.get('https://dktap82.000webhostapp.com/backend/get_guest.php', {
+						params: {
+							code: this.code
+						}
+					})
+
+					this.guest = response.data.guest ?? null
+					this.swap = this.guest.swap ?? 1
+
+					if (this.swap == 2) {
+						this.title = 'P&O'
+						document.title = this.title
+					}
+				} catch (error) {
+					console.error(error)
+				}
+			},
+			updateCountdown() {
+				const now = moment()
+				const target = moment(this.targetDate, 'YYYY-MM-DD HH:mm:ss')
+				const duration = moment.duration(target.diff(now))
+
+				if (duration.asMilliseconds() <= 0) {
+					this.countdown = " ณ เวลานี้ "
+				} else {
+					const days = Math.floor(duration.asDays())
+					const hours = duration.hours()
+					const minutes = duration.minutes()
+					const seconds = duration.seconds()
+
+					this.countdown = `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`
+				}
+			},
+			async sendMessage() {
+				try {
+					const response = await axios.get('https://dktap82.000webhostapp.com/backend/send_message.php', {
+						params: {
+							code: 'kan&sun',
+							message: this.message
+						}
+					})
+					if (response.data) {
+						console.log('Send Message!')
+					}
+
+				} catch (error) {
+					console.error(error)
+				}
+
+				this.message = ''
+			},
+			showDonate() {
+				this.isPayment = true
+			},
+			async confmDonate() {
+				try {
+					// const response = await axios.get('https://dktap82.000webhostapp.com/backend/donate.php', {
+					// 	params: {
+					// 		code: 'kan&sun',
+					// 		title: this.transferor,
+					// 		amount: this.amount,
+					// 		imageOCR: this.recognitionResult
+					// 	}
+					// })
+
+					// if ( response.data ) {
+					// 	console.log('Donate!')
+					// }
+				} catch (error) {
+					console.error(error)
+				}
+
+				this.isPayment = false
+				this.imagePaymentSrc = ''
+				this.recognitionResult = ''
+				this.amount = 0.00
+				this.transferor = null
+				this.scrollToSection('comment')
+			},
+			scrollToSection(sectionId) {
+				const section = document.getElementById(sectionId)
+
+				if (section) {
+					section.scrollIntoView({ behavior: 'smooth' })
+				}
+			},
+			imageOCR() {
+				this.value = 0
+				const fileInput = this.$refs.paymentInput
+				const file = fileInput.files[0]
+				this.ocrLoading = true
+
+				if (file) {
+					const reader = new FileReader()
+					reader.readAsDataURL(file)
+					reader.onload = (event) => {
+						this.imagePaymentSrc = reader.result
+						// const base64String = event.target.result
+						// console.log(base64String)
+					}
+
+					const recognizeConfig = {
+						lang: 'tha',
+						tessedit_char_whitelist: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZกขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลวศษสหฬอฮาเแโใไๅๆ็่้๊๋์ฯฺ็ัีึืฺุูํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛',
+					}
+
+					Tesseract.recognize(file, 'tha', recognizeConfig)
+						.then((result) => {
+							// console.log(result)
+							this.ocrLoading = false
+							this.recognitionResult = result.data.text ?? ''
+							this.amount = this.extractMoneyValue(this.recognitionResult)
+
+							this.extractName(this.recognitionResult)
+						})
+						.catch((error) => {
+							console.error(error)
+							this.ocrLoading = false
+							this.recognitionResult = 'Error during recognition.'
+						})
+				} else {
+					this.ocrLoading = false
+					this.amount = 0.00
+					this.transferor = null
+				}
+			},
+			extractMoneyValue(inputString) {
+
+				const moneyRegex = /\b(\d{1,3}(,\d{3})*(\.\d+)?)\b/g
+				const matches = inputString.match(moneyRegex)
+
+				if (matches && matches.length > 0) {
+
+					const moneyPosition = matches
+						.filter(value => /\.\d+/.test(value))
+						.sort((a, b) => {
+							const floatValueA = parseFloat(a.replace(/,/g, ''))
+							const floatValueB = parseFloat(b.replace(/,/g, ''))
+							return floatValueB - floatValueA
+						})
+
+					// return parseFloat(matches[0])
+					decimalValue = parseFloat(moneyPosition[0].replace(/,/g, '')) ?? 0
+					return decimalValue
+
+				} else {
+					return null
+				}
+			},
+			extractName(inputString) {
+				const titleRegex = /(นาย|นาง|น.ส.)/g
+				const names = []
+
+				let match
+				while ((match = titleRegex.exec(inputString)) !== null) {
+
+					const nameStartIndex = match.index + match[0].length
+					const name = inputString.substring(nameStartIndex).trim()
+
+					const nameEndIndex = name.indexOf('\n') !== -1 ? name.indexOf('\n') : name.length
+
+					const extractedName = name.substring(0, nameEndIndex).trim()
+					names.push(extractedName)
+				}
+				this.transferor = (names.length == 2) ? names[0] : null
+			},
+			openMap() {
+				window.open('https://maps.app.goo.gl/oQMSigYH6n61v2QU7?g_st=ic', '_blank')
+			}
+		},
+		created() {
+			document.title = this.title
+		},
+		mounted() {
+			this.getInvitaion()
+			this.updateCountdown()
+			setInterval(this.updateCountdown, 1000)
+		},
+		watch: {
+
+		},
+		computed: {
+			w992() {
+				const windowWidth = window.innerWidth
+				return windowWidth < 992
+			}
+		}
+	})
+</script>
+
+</html>
