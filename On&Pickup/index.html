@@ -527,17 +527,16 @@
 				// 	console.error(error)
 				// }
 
-				// google sheets
+				// googleSheets
+				let msg = this.message ?? null
 				try {
-					const apiUrl = 'https://script.google.com/macros/s/AKfycbxXq7l3b06VhVSWtuYAeBdY7ju70ckzSY3NU0cX1kk/dev'; // ใส่ URL API ที่ได้จาก Google Apps Script
-					await axios.post(apiUrl, { message: this.message }, {
-						headers: { "Content-Type": "application/json" }
-					})
-
-					// alert("บันทึกข้อมูลสำเร็จ")
+					const apiUrl = `https://script.google.com/macros/s/AKfycbzIVivdZErxoCUvfJx94Ip-y8MmZfpUVotpOqHxifk5DN2J4Y3OcAnlSp-8YpEtuHe5/exec?message=${encodeURIComponent(msg)}`
+					const res = await axios.get(apiUrl)
+					console.log(res)
+					
 				} catch (error) {
 					console.error("Error:", error)
-					// alert("เกิดข้อผิดพลาด")
+					
 				}
 
 				this.message = ''
