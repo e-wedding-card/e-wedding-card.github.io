@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>กรอกข้อมูล</title>
+  <!-- Bootstrap 4 CDN -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+</head>
+<body>
+  <div id="app" class="container py-4">
+    <h4 class="mb-4 text-center">กรุณากรอกข้อมูล</h4>
+    
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label>ชื่อ</label>
+        <input type="text" class="form-control" v-model="form.name" required>
+      </div>
+
+      <div class="form-group">
+        <label>เบอร์โทร</label>
+        <input type="tel" class="form-control" v-model="form.phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>จังหวัด</label>
+        <input type="text" class="form-control" v-model="form.province" required>
+      </div>
+
+      <input type="hidden" v-model="form.secretLineId">
+
+      <button type="submit" class="btn btn-primary btn-block">ส่งข้อมูล</button>
+	{{ form }}
+    </form>
+
+    <div v-if="submitted" class="alert alert-success mt-4" role="alert">
+      ส่งข้อมูลเรียบร้อยแล้ว!
+    </div>
+  </div>
+
+  <!-- Vue.js 2.6 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        form: {
+          name: '',
+          phone: '',
+          province: '',
+          secretLineId: ''
+        },
+        submitted: false
+      },
+      created() {
+        const params = new URLSearchParams(window.location.search);
+        this.form.secretLineId = params.get('secretLineId') || '';
+      },
+      methods: {
+        submitForm() {
+          console.log('ส่งข้อมูล:', this.form);
+          this.submitted = true;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
